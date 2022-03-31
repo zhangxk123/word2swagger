@@ -1,0 +1,40 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "api文档",
+        "description": "api文档",
+        "version": "1.0.0"
+    },
+    "host": "localhost:8000",
+    "basePath": "/api/v1",
+    "schemes": [
+        "http",
+        "https"
+    ],
+    "tags": [
+        {
+            "name": "1.1 xx接口",
+            "description": "1.1 xx接口"
+        }
+    ],
+    "paths": {},
+    "definitions": {
+        "PlainModel": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "string",
+                    "description": "状态码",
+                    "example": "00000",
+                    "default": "00000"
+                },
+                "msg": {
+                    "type": "string",
+                    "description": "返回结果描述",
+                    "example": "success",
+                    "default": "success"
+                }
+            }
+        }
+    }
+}

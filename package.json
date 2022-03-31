@@ -1,0 +1,26 @@
+{
+  "name": "word2swagger",
+  "version": "1.0.0",
+  "description": "根据特定的word文档生成swagger.json文件并构建本地mock服务",
+  "main": "index.js",
+  "type": "commonjs",
+  "dependencies": {
+    "chalk": "~4.1.2",
+    "cheerio": "^1.0.0-rc.10",
+    "express": "^4.17.3",
+    "express-fileupload": "^1.3.1",
+    "lodash": "^4.17.21",
+    "mammoth": "^1.4.21",
+    "mockjs": "^1.1.0",
+    "swagger-tools": "^0.10.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node server/index.js",
+    "gen:swagger": "node --trace-warnings --unhandled-rejections=strict index.js",
+    "mock": "npm run gen:swagger && node server/swaggerTools.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

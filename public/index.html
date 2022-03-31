@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>doc2swagger</title>
+    <style>
+        #tip {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <form id="form">
+        <label for="upload">
+            上传指定格式的doc文件:
+            <input type="file" name="" id="upload" accept=".json,.docx">
+        </label>
+        <b>支持swagger.json或者docx文件</b>
+        <p id="tip">swagger文档已生成: <a href="/doc"></a> </p>
+    </form>
+    <script>
+        const uploadInput = document.getElementById('upload')
+        const tip = document.getElementById('tip')
+        uploadInput.addEventListener('change', function (event) {
+            const file = event.target.files[0]
+            if (!file) {
+                return
+            }
+            uploadFile(file).then(res => {
+                if (res.code === '200') {
+                    tip.style.display = "block"
+                }
+            })
+        })
+        function uploadFile(file) {
+            const formData = new FormData();
+            formData.append('doc', file);
+            debugger
+            return fetch('/api/uploadDoc', {
+                method: 'POST',
+                body: formData
+            }).then(res => res.json())
+        }
+    </script>
+</body>
+
+</html>

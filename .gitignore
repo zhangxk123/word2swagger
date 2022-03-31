@@ -1,0 +1,6 @@
+node_modules/
+target/swagger.json
+source/api.docx
+source/auto.html
+uploads/
+/ms
